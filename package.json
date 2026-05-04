@@ -1,0 +1,9 @@
+{
+  "name": "gold-diamond-calculator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "微信小程序：黄金钻石估值工具",
+  "scripts": {
+    "lint": "echo \"No lint config yet\""
+  }
+}

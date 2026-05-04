@@ -1,0 +1,12 @@
+<view class="ui-item">
+  <view class="ui-item__top">
+    <text class="ui-item__title">{{title}}</text>
+    <text wx:if="{{tag}}" class="ui-item__tag">{{tag}}</text>
+  </view>
+  <view wx:if="{{meta || value}}" class="ui-item__meta-row">
+    <text wx:if="{{meta}}" class="ui-item__meta">{{meta}}</text>
+    <text wx:if="{{value}}" class="ui-item__value">{{value}}</text>
+  </view>
+  <text wx:if="{{desc}}" class="ui-item__desc">{{desc}}</text>
+  <slot />
+</view>

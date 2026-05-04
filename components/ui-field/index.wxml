@@ -1,0 +1,7 @@
+<view class="ui-field">
+  <text class="ui-field__label">{{label}}</text>
+  <view class="ui-field__control">
+    <input class="ui-field__input" type="{{type}}" value="{{value}}" placeholder="{{placeholder}}" bindinput="handleInput" />
+    <text wx:if="{{unit}}" class="ui-field__unit">{{unit}}</text>
+  </view>
+</view>

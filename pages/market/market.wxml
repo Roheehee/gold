@@ -1,0 +1,99 @@
+<view class="page shell">
+  <view class="section-head page-top">
+    <view>
+      <text class="section-title">金属行情</text>
+      <text class="section-desc">按不同 K 金和不同时间维度查看价格波动</text>
+    </view>
+  </view>
+
+  <ui-loading wx:if="{{loading}}" text="行情数据加载中..." />
+
+  <block wx:else>
+    <view class="section">
+      <ui-card title="金属行情查询" desc="支持查看黄金不同 K 金、铂金和银的实时参考价格。">
+        <view class="query-row">
+          <view class="query-control">
+            <text class="query-label">金属类型</text>
+            <picker mode="selector" range="{{metalOptions}}" range-key="label" value="{{selectedMetalIndex}}" bindchange="handleMetalChange">
+              <view class="query-picker">
+                <text class="query-picker__text">{{metalOptions[selectedMetalIndex].label}}</text>
+              </view>
+            </picker>
+          </view>
+          <view class="query-value">
+            <text class="metric-label">当前参考价</text>
+            <text class="metric-value">¥ {{priceSummary.selectedPrice}}</text>
+            <text class="metric-note">{{priceSummary.selectedLabel}} 较上一采样 {{priceSummary.selectedChange}}</text>
+          </view>
+        </view>
+      </ui-card>
+    </view>
+
+    <view class="section">
+      <ui-card title="价格走势" desc="支持按天、按周、按月查看价格波动，图表会自适应屏幕高度展示。">
+        <view class="trend-tabs">
+          <block wx:for="{{trendTabs}}" wx:key="key">
+            <view class="trend-tab {{currentTrendTab === item.key ? 'trend-tab--active' : ''}}" data-tab="{{item.key}}" bindtap="handleTrendTabChange">
+              <text class="trend-tab__text">{{item.label}}</text>
+            </view>
+          </block>
+        </view>
+
+        <view
+          wx:if="{{currentTrendTab === 'day'}}"
+          id="market-line-chart"
+          class="line-chart"
+          style="height: {{chartHeight}}rpx;"
+          bindtap="clearActivePoint"
+          catchtouchstart="handleChartTouchStart"
+          catchtouchmove="handleChartTouchMove"
+          catchtouchend="handleChartTouchEnd"
+        >
+          <block wx:for="{{goldYAxis}}" wx:key="y">
+            <view class="line-chart__grid" style="top: {{item.y}};"></view>
+          </block>
+          <block wx:for="{{goldLineSegments}}" wx:key="left">
+            <view class="line-chart__segment" style="left: {{item.left}}; top: {{item.top}}; width: {{item.width}}; transform: rotate({{item.angle}});"></view>
+          </block>
+          <view wx:if="{{activePoint}}" class="line-chart__crosshair" style="left: {{activePoint.pointLeft}};"></view>
+          <view wx:if="{{activePoint}}" class="line-chart__tooltip" style="left: {{activePoint.tooltipLeft}}; top: {{activePoint.tooltipTop}};">
+            <text class="line-chart__tooltip-label">{{activePoint.label}}</text>
+            <text class="line-chart__tooltip-value">{{activePoint.valueText}}</text>
+          </view>
+          <block wx:for="{{goldLinePoints}}" wx:key="label">
+            <view class="line-chart__point-hit" data-index="{{index}}" catchtap="handlePointTap" style="left: {{item.pointLeft}}; top: {{item.pointTop}};">
+              <view class="line-chart__point {{activePointIndex === index ? 'line-chart__point--active' : ''}} {{item.isMax ? 'line-chart__point--max' : ''}} {{item.isMin ? 'line-chart__point--min' : ''}}"></view>
+            </view>
+            <text class="line-chart__label" style="left: {{item.labelLeft}};">{{item.label}}</text>
+          </block>
+        </view>
+
+        <view
+          wx:else
+          id="market-line-chart"
+          class="line-chart"
+          style="height: {{chartHeight}}rpx;"
+          bindtap="clearActivePoint"
+        >
+          <block wx:for="{{goldYAxis}}" wx:key="y">
+            <view class="line-chart__grid" style="top: {{item.y}};"></view>
+          </block>
+          <block wx:for="{{goldLineSegments}}" wx:key="left">
+            <view class="line-chart__segment" style="left: {{item.left}}; top: {{item.top}}; width: {{item.width}}; transform: rotate({{item.angle}});"></view>
+          </block>
+          <view wx:if="{{activePoint}}" class="line-chart__crosshair" style="left: {{activePoint.pointLeft}};"></view>
+          <view wx:if="{{activePoint}}" class="line-chart__tooltip" style="left: {{activePoint.tooltipLeft}}; top: {{activePoint.tooltipTop}};">
+            <text class="line-chart__tooltip-label">{{activePoint.label}}</text>
+            <text class="line-chart__tooltip-value">{{activePoint.valueText}}</text>
+          </view>
+          <block wx:for="{{goldLinePoints}}" wx:key="label">
+            <view class="line-chart__point-hit" data-index="{{index}}" catchtap="handlePointTap" style="left: {{item.pointLeft}}; top: {{item.pointTop}};">
+              <view class="line-chart__point {{activePointIndex === index ? 'line-chart__point--active' : ''}} {{item.isMax ? 'line-chart__point--max' : ''}} {{item.isMin ? 'line-chart__point--min' : ''}}"></view>
+            </view>
+            <text class="line-chart__label" style="left: {{item.labelLeft}};">{{item.label}}</text>
+          </block>
+        </view>
+      </ui-card>
+    </view>
+  </block>
+</view>

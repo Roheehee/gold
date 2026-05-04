@@ -1,0 +1,72 @@
+<view class="page shell">
+  <view class="hero">
+    <text class="hero-badge">我的资产</text>
+    <text class="hero-title">资产台账与历史记录</text>
+    <text class="hero-subtitle">集中查看黄金资产估值和最近保存的计算记录，方便日常整理与回看。</text>
+    <view class="hero-meta">
+      <text class="meta-chip">资产条目 {{assets.length}}</text>
+      <text class="meta-chip">历史记录 {{history.length}}</text>
+      <text class="meta-chip">总估值 ¥{{totalValue}}</text>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="grid-2">
+      <view class="metric">
+        <text class="metric-label">资产总估值</text>
+        <text class="metric-value">¥ {{totalValue}}</text>
+        <text class="metric-note">按当前台账参考价格合计</text>
+      </view>
+      <view class="metric">
+        <text class="metric-label">历史计算次数</text>
+        <text class="metric-value">{{history.length}}</text>
+        <text class="metric-note">自动沉淀最近 20 条记录</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <ui-card wx:if="{{editingAssetId}}" title="编辑资产" desc="修改名称、规格、估值和备注后保存即可。">
+      <ui-field label="资产名称" value="{{assetForm.name}}" placeholder="请输入资产名称" data-field="name" bind:input="handleAssetFormInput" />
+      <ui-field label="资产规格" value="{{assetForm.spec}}" placeholder="请输入规格" data-field="spec" bind:input="handleAssetFormInput" />
+      <ui-field label="估值金额" value="{{assetForm.estimatedValue}}" placeholder="请输入估值金额" type="digit" data-field="estimatedValue" bind:input="handleAssetFormInput" />
+      <ui-field label="备注" value="{{assetForm.remark}}" placeholder="请输入备注" data-field="remark" bind:input="handleAssetFormInput" />
+      <view class="inline-actions">
+        <ui-button text="取消" type="secondary" bind:tap="cancelEditAsset" />
+        <ui-button text="保存修改" type="primary" bind:tap="saveAssetEdit" />
+      </view>
+    </ui-card>
+  </view>
+
+  <view class="section">
+    <ui-card title="资产台账" desc="默认内置示例数据，同时支持从首页将估值结果快速加入。">
+      <block wx:if="{{assets.length}}">
+        <block wx:for="{{assets}}" wx:key="id">
+          <view style="margin-bottom: 16rpx;">
+            <ui-list-item title="{{item.name}}" tag="{{item.typeText}}" meta="{{item.spec}}" value="¥ {{item.estimatedValue}}" desc="{{item.remark}}">
+              <view class="asset-actions">
+                <view class="asset-action asset-action--edit" data-id="{{item.id}}" bindtap="startEditAsset">编辑</view>
+                <view class="asset-action asset-action--delete" data-id="{{item.id}}" bindtap="removeAsset">删除</view>
+              </view>
+            </ui-list-item>
+          </view>
+        </block>
+      </block>
+      <ui-empty wx:else title="暂无资产台账" desc="可以从首页计算结果中一键加入资产台账。" />
+    </ui-card>
+  </view>
+
+  <view class="section">
+    <ui-card title="历史计算记录" desc="记录来自首页的保存操作，方便之后快速查看。">
+      <block wx:if="{{history.length}}">
+        <block wx:for="{{history}}" wx:key="id">
+          <view style="margin-bottom: 16rpx;">
+            <ui-list-item title="{{item.title}}" tag="{{item.type === 'gold' ? '黄金' : item.type === 'diamond' ? '钻石' : '组合'}}" meta="{{item.spec}}" value="¥ {{item.estimatedValue}}" desc="保存时间：{{item.createdAt}}" />
+          </view>
+        </block>
+        <ui-button text="清空历史记录" type="secondary" block="{{true}}" bind:tap="clearHistory" />
+      </block>
+      <ui-empty wx:else title="暂无历史记录" desc="在首页点击保存记录后，这里会自动展示最近的估值历史。" />
+    </ui-card>
+  </view>
+</view>

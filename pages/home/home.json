@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "估值计算器",
+  "usingComponents": {
+    "ui-button": "/components/ui-button/index",
+    "ui-card": "/components/ui-card/index",
+    "ui-field": "/components/ui-field/index"
+  }
+}

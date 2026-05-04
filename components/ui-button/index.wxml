@@ -1,0 +1,3 @@
+<button class="ui-button ui-button--{{type}} {{block ? 'ui-button--block' : ''}}" loading="{{loading}}" disabled="{{disabled}}" bindtap="handleTap">
+  {{text}}
+</button>

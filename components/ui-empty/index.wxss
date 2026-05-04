@@ -1,0 +1,29 @@
+.ui-empty {
+  padding: 56rpx 32rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.ui-empty__icon {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffe392 0%, #f4c542 50%, #fef6dd 100%);
+  box-shadow: 0 14rpx 28rpx rgba(244, 197, 66, 0.18);
+}
+
+.ui-empty__title {
+  margin-top: 24rpx;
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #2d3442;
+}
+
+.ui-empty__desc {
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  color: #9b8962;
+  line-height: 1.8;
+}

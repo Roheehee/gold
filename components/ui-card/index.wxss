@@ -1,0 +1,25 @@
+.ui-card {
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: 28rpx;
+  border: 1rpx solid rgba(242, 208, 111, 0.2);
+  box-shadow: 0 18rpx 44rpx rgba(227, 188, 65, 0.1);
+}
+
+.ui-card__head {
+  margin-bottom: 20rpx;
+}
+
+.ui-card__title {
+  display: block;
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #1d2433;
+}
+
+.ui-card__desc {
+  display: block;
+  margin-top: 10rpx;
+  font-size: 22rpx;
+  line-height: 1.7;
+  color: #9a885e;
+}

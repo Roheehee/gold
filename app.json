@@ -1,0 +1,36 @@
+{
+  "pages": [
+    "pages/market/market",
+    "pages/home/home",
+    "pages/mine/mine"
+  ],
+  "window": {
+    "navigationBarTitleText": "黄金钻石估值计算器",
+    "navigationBarBackgroundColor": "#fffdf6",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#fffdf6",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "#7c6b46",
+    "selectedColor": "#c89511",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/market/market",
+        "text": "金属行情"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "text": "估值计算"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
