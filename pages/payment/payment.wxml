@@ -1,0 +1,16 @@
+<view class="page shell">
+  <view class="section">
+    <ui-card title="会员权益" desc="升级后可获得更多行情、估值和资产管理能力。">
+      <view class="payment-plan">
+        <text class="payment-plan__name">专业会员</text>
+        <text class="payment-plan__price">¥29 / 月</text>
+      </view>
+      <view class="payment-feature">1. 更细粒度金属行情波动视图</view>
+      <view class="payment-feature">2. 更多组合估值能力与高级资产记录</view>
+      <view class="payment-feature">3. 专属客服与后续功能优先体验</view>
+      <view style="margin-top: 24rpx;">
+        <ui-button text="立即开通" type="primary" block="{{true}}" bind:tap="handleSubscribe" />
+      </view>
+    </ui-card>
+  </view>
+</view>

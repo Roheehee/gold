@@ -1,0 +1,13 @@
+<view class="page shell policy-page">
+  <view class="policy-card">
+    <text class="policy-title">第三方信息共享清单</text>
+    <text class="policy-desc">以下内容用于说明小程序在登录、客服与行情功能中涉及的第三方服务范围。</text>
+
+    <block wx:for="{{items}}" wx:key="title">
+      <view class="policy-item">
+        <text class="policy-item__title">{{item.title}}</text>
+        <text class="policy-item__desc">{{item.desc}}</text>
+      </view>
+    </block>
+  </view>
+</view>

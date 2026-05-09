@@ -1,11 +1,13 @@
 .ui-button {
-  height: 88rpx;
-  line-height: 88rpx;
-  border-radius: 22rpx;
-  font-size: 28rpx;
-  font-weight: 600;
+  height: 72rpx;
+  line-height: 72rpx;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+  font-weight: 700;
   border: none;
-  padding: 0 28rpx;
+  padding: 0 20rpx;
+  letter-spacing: 0.5rpx;
+  box-shadow: 0 8rpx 18rpx rgba(31, 35, 41, 0.045);
 }
 
 .ui-button::after {
@@ -17,14 +19,15 @@
 }
 
 .ui-button--primary {
-  background: linear-gradient(135deg, #f4c542 0%, #d8a218 100%);
+  background: linear-gradient(135deg, #ffd75f 0%, #f5bf2a 58%, #e4a10b 100%);
   color: #fff;
-  box-shadow: 0 16rpx 32rpx rgba(219, 170, 28, 0.24);
+  box-shadow: 0 12rpx 24rpx rgba(219, 170, 28, 0.22);
 }
 
 .ui-button--secondary {
-  background: #fff7db;
+  background: linear-gradient(180deg, #fff8df 0%, #ffefb8 100%);
   color: #936d08;
+  border: 1rpx solid rgba(235, 190, 47, 0.18);
 }
 
 .ui-button--ghost {

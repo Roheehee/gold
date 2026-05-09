@@ -1,0 +1,14 @@
+<view class="page shell">
+  <view class="section">
+    <ui-card title="消息设置" desc="控制行情提醒与会员通知。">
+      <view class="setting-row">
+        <text class="setting-label">行情提醒</text>
+        <switch checked="{{notifications}}" color="#d8a218" bindchange="handleNotificationChange" />
+      </view>
+      <view class="setting-row">
+        <text class="setting-label">资产同步提醒</text>
+        <switch checked="{{assetSync}}" color="#d8a218" bindchange="handleAssetSyncChange" />
+      </view>
+    </ui-card>
+  </view>
+</view>

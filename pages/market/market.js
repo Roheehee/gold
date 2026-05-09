@@ -58,8 +58,8 @@ Page({
     this.pxPerRpx = info.windowWidth / 750
     const chartWidth = Math.round((info.windowWidth - 24) * 750 / info.windowWidth)
     const chartHeight = Math.max(
-      420,
-      Math.round(info.windowHeight * 0.5 * 750 / info.windowWidth)
+      500,
+      Math.round(info.windowHeight * 0.58 * 750 / info.windowWidth)
     )
 
     this.setData({

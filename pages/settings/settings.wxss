@@ -1,0 +1,14 @@
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.setting-row + .setting-row {
+  margin-top: 24rpx;
+}
+
+.setting-label {
+  font-size: 28rpx;
+  color: #1d2433;
+}

@@ -76,6 +76,8 @@ Page({
         estimatedValue: asset.estimatedValue || '',
         remark: asset.remark || ''
       }
+    }, () => {
+      this.scrollToEditor()
     })
   },
 
@@ -104,6 +106,14 @@ Page({
       return
     }
 
+    if (!assetForm.name || !assetForm.spec || !assetForm.estimatedValue) {
+      wx.showToast({
+        title: '请补全必填信息',
+        icon: 'none'
+      })
+      return
+    }
+
     updateAsset(editingAssetId, {
       name: assetForm.name,
       spec: assetForm.spec,
@@ -116,6 +126,13 @@ Page({
     wx.showToast({
       title: '资产已更新',
       icon: 'success'
+    })
+  },
+
+  scrollToEditor() {
+    wx.pageScrollTo({
+      selector: '.asset-editor',
+      duration: 250
     })
   },
 

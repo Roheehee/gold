@@ -1,16 +1,9 @@
 <view class="page shell">
-  <view class="section-head page-top">
-    <view>
-      <text class="section-title">金属行情</text>
-      <text class="section-desc">按不同 K 金和不同时间维度查看价格波动</text>
-    </view>
-  </view>
-
   <ui-loading wx:if="{{loading}}" text="行情数据加载中..." />
 
   <block wx:else>
     <view class="section">
-      <ui-card title="金属行情查询" desc="支持查看黄金不同 K 金、铂金和银的实时参考价格。">
+      <ui-card title="金属行情查询">
         <view class="query-row">
           <view class="query-control">
             <text class="query-label">金属类型</text>
@@ -30,7 +23,7 @@
     </view>
 
     <view class="section">
-      <ui-card title="价格走势" desc="支持按天、按周、按月查看价格波动，图表会自适应屏幕高度展示。">
+      <ui-card title="价格走势">
         <view class="trend-tabs">
           <block wx:for="{{trendTabs}}" wx:key="key">
             <view class="trend-tab {{currentTrendTab === item.key ? 'trend-tab--active' : ''}}" data-tab="{{item.key}}" bindtap="handleTrendTabChange">

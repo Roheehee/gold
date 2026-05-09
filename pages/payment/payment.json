@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "付费功能",
+  "usingComponents": {
+    "ui-card": "/components/ui-card/index",
+    "ui-button": "/components/ui-button/index"
+  }
+}

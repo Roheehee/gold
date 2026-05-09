@@ -260,7 +260,16 @@ scroll-view {
 
 .inline-actions {
   display: flex;
-  gap: 18rpx;
+  gap: 20rpx;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+.inline-actions__item {
+  flex: 0 1 260rpx;
+  width: 260rpx;
+  min-width: 0;
+  max-width: calc(50% - 10rpx);
 }
 
 .muted {

@@ -1,0 +1,27 @@
+.payment-plan {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 24rpx;
+  border-radius: 22rpx;
+  background: #fff8e4;
+  margin-bottom: 20rpx;
+}
+
+.payment-plan__name {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #7a631f;
+}
+
+.payment-plan__price {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #c37d09;
+}
+
+.payment-feature {
+  font-size: 24rpx;
+  color: #8f7f58;
+  line-height: 1.9;
+}

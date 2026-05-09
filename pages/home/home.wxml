@@ -1,11 +1,4 @@
 <view class="page shell">
-  <view class="section-head page-top">
-    <view>
-      <text class="section-title">估值计算</text>
-      <text class="section-desc">支持黄金、钻石和金钻组合三种估值模式</text>
-    </view>
-  </view>
-
   <view class="section">
     <view class="calculator-tabs">
       <block wx:for="{{calculatorTabs}}" wx:key="key">
@@ -17,7 +10,7 @@
   </view>
 
   <view class="section" wx:if="{{currentTab === 'gold'}}">
-    <ui-card title="黄金估值参数" desc="先选择 K 金类型，再输入克重即可快速得到参考估值。">
+    <ui-card title="黄金估值参数">
       <view class="ui-field">
         <text class="ui-field__label">黄金类型</text>
         <picker mode="selector" range="{{goldKOptions}}" range-key="label" value="{{goldKIndex}}" bindchange="handleGoldKChange">
@@ -28,14 +21,14 @@
       </view>
       <ui-field label="黄金克重" value="{{goldWeight}}" placeholder="例如 12.5" type="digit" unit="g" bind:input="handleGoldWeightInput" />
       <view class="inline-actions">
-        <ui-button text="保存记录" type="secondary" bind:tap="saveRecord" />
-        <ui-button text="加入资产台账" type="primary" bind:tap="addToAssets" />
+        <button class="action-btn action-btn--secondary" bindtap="saveRecord">保存记录</button>
+        <button class="action-btn action-btn--primary" bindtap="addToAssets">加入资产台账</button>
       </view>
     </ui-card>
   </view>
 
   <view class="section" wx:if="{{currentTab === 'gold'}}">
-    <ui-card title="黄金估值结果" desc="以下结果会跟随当前 K 金价格变化自动刷新。">
+    <ui-card title="黄金估值结果">
       <view class="result-block">
         <text class="result-caption">黄金参考估值</text>
         <text class="result-amount">¥ {{goldEstimatedValue}}</text>
@@ -49,7 +42,7 @@
   </view>
 
   <view class="section" wx:if="{{currentTab === 'diamond' || currentTab === 'combo'}}">
-    <ui-card title="钻石参数" desc="颜色、净度、切工会共同影响市场参考价与回收价区间。">
+    <ui-card title="钻石参数">
       <ui-field label="钻石重量" value="{{diamondCarat}}" placeholder="例如 1.0" type="digit" unit="ct" bind:input="handleDiamondCaratInput" />
 
       <view class="ui-field">
@@ -96,8 +89,8 @@
         <text class="tag">{{diamondRecordLabel}}</text>
       </view>
       <view class="inline-actions action-space">
-        <ui-button text="保存记录" type="secondary" bind:tap="saveRecord" />
-        <ui-button text="加入资产台账" type="primary" bind:tap="addToAssets" />
+        <button class="action-btn action-btn--secondary" bindtap="saveRecord">保存记录</button>
+        <button class="action-btn action-btn--primary" bindtap="addToAssets">加入资产台账</button>
       </view>
     </ui-card>
   </view>
@@ -131,8 +124,8 @@
         <text class="tag">{{comboRecordLabel}}</text>
       </view>
       <view class="inline-actions action-space">
-        <ui-button text="保存记录" type="secondary" bind:tap="saveRecord" />
-        <ui-button text="加入资产台账" type="primary" bind:tap="addToAssets" />
+        <button class="action-btn action-btn--secondary" bindtap="saveRecord">保存记录</button>
+        <button class="action-btn action-btn--primary" bindtap="addToAssets">加入资产台账</button>
       </view>
     </ui-card>
   </view>

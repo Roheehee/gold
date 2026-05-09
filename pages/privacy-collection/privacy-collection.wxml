@@ -1,0 +1,13 @@
+<view class="page shell policy-page">
+  <view class="policy-card">
+    <text class="policy-title">个人信息收集清单</text>
+    <text class="policy-desc">以下内容用于说明小程序在不同功能下会收集或保存的个人信息范围。</text>
+
+    <block wx:for="{{items}}" wx:key="title">
+      <view class="policy-item">
+        <text class="policy-item__title">{{item.title}}</text>
+        <text class="policy-item__desc">{{item.desc}}</text>
+      </view>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,62 @@
+<view class="profile-page">
+  <view class="profile-shell">
+    <view class="profile-header">
+      <view class="profile-account">
+        <view class="profile-avatar-wrap" bindtap="handleAvatarUpload">
+          <image wx:if="{{userInfo}}" class="profile-avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
+          <view wx:else class="profile-avatar profile-avatar--placeholder">我</view>
+          <view class="profile-avatar-badge">上传</view>
+        </view>
+        <view class="profile-account__content">
+          <view class="profile-account__row" bindtap="handleSyncWechatProfile">
+            <text class="profile-account__name">{{userInfo && userInfo.nickName ? userInfo.nickName : '用户名'}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="profile-banner">
+      <text class="profile-banner__text">登录后可同步会员身份、联系客服并管理你的功能权限。</text>
+    </view>
+
+    <view class="profile-banner profile-banner--muted">
+      <text class="profile-banner__text">建议绑定微信登录，避免更换设备后丢失会员与设置记录。</text>
+    </view>
+
+    <view class="profile-upgrade">
+      <view class="profile-upgrade__content">
+        <text class="profile-upgrade__title">升级成为订阅会员</text>
+        <text class="profile-upgrade__desc">{{memberPlan.price}}，{{memberPlan.desc}}</text>
+      </view>
+      <view class="profile-upgrade__action" data-key="payment" bindtap="navigateMenu">升级</view>
+    </view>
+
+    <view class="profile-panel">
+      <view class="profile-actions">
+        <block wx:for="{{shortcuts}}" wx:key="key">
+          <view wx:if="{{item.key !== 'contact'}}" class="profile-actions__item" data-key="{{item.key}}" bindtap="navigateMenu">
+            <view class="profile-actions__main">
+              <view class="profile-actions__icon
+                {{item.key === 'settings' ? 'profile-actions__icon--settings' : ''}}
+                {{item.key === 'about' ? 'profile-actions__icon--about' : ''}}
+                {{item.key === 'payment' ? 'profile-actions__icon--payment' : ''}}">
+                <text class="profile-actions__icon-text">{{item.icon}}</text>
+              </view>
+              <text class="profile-actions__title">{{item.title}}</text>
+            </view>
+            <text class="profile-actions__value">{{item.desc}}</text>
+          </view>
+        </block>
+      </view>
+    </view>
+
+  </view>
+
+  <view class="profile-footer-links">
+    <view class="profile-footer-links__inline">
+      <button class="profile-footer-links__button" open-type="contact">客服</button>
+      <text class="profile-footer-links__divider">|</text>
+      <button class="profile-footer-links__button" open-type="contact">在线帮助</button>
+    </view>
+  </view>
+</view>

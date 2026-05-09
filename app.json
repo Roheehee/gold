@@ -2,7 +2,11 @@
   "pages": [
     "pages/market/market",
     "pages/home/home",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/profile/profile",
+    "pages/settings/settings",
+    "pages/about/about",
+    "pages/payment/payment"
   ],
   "window": {
     "navigationBarTitleText": "黄金钻石估值计算器",
@@ -19,15 +23,27 @@
     "list": [
       {
         "pagePath": "pages/market/market",
-        "text": "金属行情"
+        "text": "金属行情",
+        "iconPath": "images/tabbar/market.png",
+        "selectedIconPath": "images/tabbar/market-active.png"
       },
       {
         "pagePath": "pages/home/home",
-        "text": "估值计算"
+        "text": "估值计算",
+        "iconPath": "images/tabbar/home.png",
+        "selectedIconPath": "images/tabbar/home-active.png"
       },
       {
         "pagePath": "pages/mine/mine",
-        "text": "我的"
+        "text": "总资产",
+        "iconPath": "images/tabbar/mine.png",
+        "selectedIconPath": "images/tabbar/mine-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "images/tabbar/profile.png",
+        "selectedIconPath": "images/tabbar/profile-active.png"
       }
     ]
   },

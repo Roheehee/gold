@@ -1,0 +1,14 @@
+<view class="page shell">
+  <view class="section">
+    <ui-card title="关于本小程序" desc="黄金钻石估值计算器，聚合金属行情、珠宝估值和资产管理能力。">
+      <view class="about-block">
+        <text class="about-title">版本信息</text>
+        <text class="about-text">当前版本：1.0.0</text>
+      </view>
+      <view class="about-block">
+        <text class="about-title">产品说明</text>
+        <text class="about-text">适用于黄金、钻石和贵金属相关的参考估值与资产记录场景。</text>
+      </view>
+    </ui-card>
+  </view>
+</view>

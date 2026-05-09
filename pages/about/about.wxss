@@ -1,0 +1,18 @@
+.about-block + .about-block {
+  margin-top: 24rpx;
+}
+
+.about-title {
+  display: block;
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #1d2433;
+}
+
+.about-text {
+  display: block;
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  line-height: 1.8;
+  color: #8f7f58;
+}

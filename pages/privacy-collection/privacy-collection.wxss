@@ -1,0 +1,48 @@
+.policy-page {
+  padding: 28rpx 24rpx 40rpx;
+}
+
+.policy-card {
+  padding: 28rpx;
+  border-radius: 28rpx;
+  background: #ffffff;
+  box-shadow: 0 12rpx 28rpx rgba(31, 35, 41, 0.06);
+}
+
+.policy-title {
+  display: block;
+  color: #1f2329;
+  font-size: 34rpx;
+  font-weight: 700;
+}
+
+.policy-desc {
+  display: block;
+  margin-top: 14rpx;
+  color: #6b7280;
+  font-size: 24rpx;
+  line-height: 1.8;
+}
+
+.policy-item {
+  padding: 24rpx 0;
+}
+
+.policy-item + .policy-item {
+  border-top: 1rpx solid #eef1f5;
+}
+
+.policy-item__title {
+  display: block;
+  color: #1f2329;
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.policy-item__desc {
+  display: block;
+  margin-top: 12rpx;
+  color: #6b7280;
+  font-size: 24rpx;
+  line-height: 1.8;
+}
