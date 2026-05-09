@@ -32,7 +32,6 @@
       <view class="result-block">
         <text class="result-caption">黄金参考估值</text>
         <text class="result-amount">¥ {{goldEstimatedValue}}</text>
-        <text class="result-text">{{goldResultDescription}}</text>
       </view>
       <view class="tag-row" style="margin-top: 20rpx;">
         <text class="tag">{{goldRecordLabel}}</text>

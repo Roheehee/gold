@@ -90,7 +90,7 @@ Page({
       market: {
         goldPrice24k: formatPrice(market.goldPrice),
         metalPrices: market.metalPrices || {},
-        updatedAt: market.updatedAt
+        updatedAt: formatDate(market.updatedAt)
       }
     })
 
